@@ -88,7 +88,7 @@ def jmthon_cmd(pattern=None, tgbot=tgbot, **kwargs):
             ):
                 return
             if mirza.is_private and (groups_only or admins_only):
-                return await eod(mirza, "**⌔∮ لقد حدث خطأ معين جال تحليل الخطأ**")
+                return await eod(mirza, "**⌔∮ لقد حدث خطأ معين جار تحليل الخطأ**")
             elif admins_only and not chat.admin_rights and not chat.creator:
                 return await eod(mirza, "**⌔∮ يجب ان تكون مشرف لأستخدام هذا الامر**")
             if only_devs and not jmdB.get_key("I_DEV"):
@@ -102,17 +102,17 @@ def jmthon_cmd(pattern=None, tgbot=tgbot, **kwargs):
             except FloodWaitError as fwerr:
                 await tgbot.send_message(
                     jmdB.get_config("LOG_CHAT"),
-                    f"**⌔∮ مشكلة أنتظار فقط:\n❃ الخطأ:{str(fwerr)}\n\n❃ التوقف لمدة: {tf((fwerr.seconds + 10)*1000)}\n\nتوضيح: هذه ليست مشكلة فقط أنتظر الى أنتهاء الوقت وكل شي سيرجع طبيعي**",
+                    f"**⌔∮ مشكلة أنتظار فقط:\n❃ الخطأ:{str(fwerr)}\n\n❃ التوقف لمدة: {tf((fwerr.seconds + 10)*1000)}\n\nتوضيح: هذه مو مشكلة بس أنتظر الى ما يخلص الوقت وكل شي بيرجع طبيعي**",
                 )
                 time.sleep(fwerr.seconds + 10)
                 await jmubot.connect()
                 await tgbot.send_message(
-                    jmdB.get_config("LOG_CHAT"), "**⌔∮ سورس جمثون يعمل بنجاح مرة أخرى**")
+                    jmdB.get_config("LOG_CHAT"), "**⌔∮ سورس ايسكو يعمل بنجاح مرة أخرى**")
                 return
             except ChatSendInlineForbiddenError:
-                return await eod(mirza, "**⌔∮ لا يمكنك أستخدام هذا الأمر هنا بسبب أن وضع الأنلاين مقفول هنا**")
+                return await eod(mirza, "**⌔∮ ما يمديك تستخدم هذا الأمر هنا بسبب أن وضع الأنلاين مقفل هنا**")
             except (ChatSendMediaForbiddenError, ChatSendStickersForbiddenError):
-                return await eod(mirza, "**⌔∮ لا يمكن ارسال صورة او ملصق او اي انواع الميديا في هذه الدردشة**")
+                return await eod(mirza, "**⌔∮ ما يمديك ترسل صورة او ملصق او اي انواع الميديا في هذه الدردشة**")
             except (BotMethodInvalidError, UserIsBotError):
                 return await eod(mirza, "**⌔∮ لا يمكن استخدام هذا الامر بواسطة البوت**")
             except AlreadyInConversationError:
@@ -167,7 +167,7 @@ def jmthon_cmd(pattern=None, tgbot=tgbot, **kwargs):
 <li>رَد على: &nbsp;{f'<a href="{replied.message_link}">هذه الرسالة</a>' if replied else '<code>لا يوجد</code>'}</li>
 </ul>
 <br />
-<h4>التاك/المنشن:</h4>
+<h4>التاق/المنشن:</h4>
 <pre>{escape(mirza.text)}</pre>
 <br />
 <h4>تتبع الخطأ:</h4>
@@ -182,7 +182,7 @@ def jmthon_cmd(pattern=None, tgbot=tgbot, **kwargs):
                     if mirz.out:
                         await mirz.edit("**⌔∮ لقد حدث خطأ معين جار تحليل الخطأ**")
                     graphLink = await mkgraph("Jmthon Error", MakeHtml)
-                    msg = f"<a href='tg://user?id={jmubot.me.id}'>\xad</a><b><a href={graphLink}>[لقـد حـدث خـطأ ⚠️]</a></b>"
+                    msg = f"<a href='tg://user?id={jmubot.me.id}'>\xad</a><b><a href={graphLink}>[لقـد حدث خطأ ⚠️]</a></b>"
 
                     Msg = await tgbot.send_message(
                         jmdB.get_config("LOG_CHAT"),
@@ -190,11 +190,11 @@ def jmthon_cmd(pattern=None, tgbot=tgbot, **kwargs):
                         parse_mode="html",
                     )
                     await mirz.edit(
-                        f"<b><a href={Msg.message_link}>[لـقـد حـصـل خـطـأ] ⚠️</a></b>",
+                        f"<b><a href={Msg.message_link}>[حـصل خـطأ] ⚠️</a></b>",
                         parse_mode="html",
                     )
                 except Exception as er:
-                    LOGS.error(f"حدثت مشكلة أثناء وضع تقرير الخطأ على تليجراف: {er}")
+                    LOGS.error(f"حدثت مشكلة أثناء وضع تقرير الخطأ : {er}")
                     LOGS.exception(er)
 
         cmd = None
