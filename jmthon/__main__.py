@@ -20,13 +20,13 @@ if not jmubot.me.bot:
     jmdB.set_key("NAME", jmubot.full_name)
 
 
-LOGS.info("جار تثبيت سورس جمثون ...")
+LOGS.info("جار تثبيت سورس ايسكو ...")
 
 
 try:
     LOGS.info("يتم أعداد الأعدادات")
     jmubot.loop.run_until_complete(main_process())
-    LOGS.info("تم اعداد اعدادت سورس جمثون ✅")
+    LOGS.info("تم اعداد اعدادت سورس ايسكو ✅")
 except Exception as meo:
     LOGS.error(f"- {meo}")
     sys.exit()
@@ -44,8 +44,8 @@ LOGS.info(f"⏳ تم استغراق {time_formatter((time.time() - start_time) *
 LOGS.info(
     """
     ╔══════════════════════════════════════════╗
-    ║       ✅ تم تنصيب وتشغيل سورس جمثون بنجاح             ║ 
-    ║       تابع آخر التحديثات من خلال قناة @Jmthon            ║
+    ║       ✅ تم تنصيب وتشغيل سورس ايسكو بنجاح       ║ 
+    ║                                          ║
     ╚══════════════════════════════════════════╝
     """
 )
@@ -53,7 +53,7 @@ LOGS.info(
     
 try:
     asst.run()
-    LOGS.info(f"تم بنجاح تشغيل البوت المساعد من @Jmthon")
+    LOGS.info(f"تم بنجاح تشغيل البوت المساعد  ")
 except SessionRevokedError:
     LOGS.info(f"جلسة البوت المساعد [@{asst.me.username}] فشلت لكن سيتم تشغيل سورس الحساب فقط")
     jmubot.run()
