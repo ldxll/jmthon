@@ -24,7 +24,7 @@ def __load(func, plugin, key, single):
         return
     PLUGINS[modl.__name__] = modl
     if single:
-        LOGS.info(f"❃ تم بنجاح تحميل {modl.__name__}")
+        LOGS.info(f"❃ تم التحميل {modl.__name__}")
 
 
 def load(
