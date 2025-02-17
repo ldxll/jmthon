@@ -32,7 +32,7 @@ async def start_mute(event):
         reply = await event.get_reply_message()
         userid = reply.sender_id
         if reply.out or userid in [jmubot.me.id, tgbot.me.id]:
-            return await moh.eor("⌔∮ لا يمكنك كتم نفسك او كتم البوت المساعد الخاص بك")
+            return await moh.eor("⌔∮ لا يمكنك كتم نفسك يا ايسكو لانك اسطورة او كتم البوت المساعد الخاص بك")
     elif event.is_private:
         userid = event.chat_id
     else:
@@ -64,9 +64,9 @@ async def end_mute(event):
     else:
         return await moh.eor("**⌔∮ يجب عليك الرد على المستخدم او وضع ايديه مع الأمر**", time=5)
     if not is_muted(event.chat_id, userid):
-        return await moh.eor("**⌔∮ هذا المستخدم غير مكتوم في هذه الدردشة أصلا**", time=3)
+        return await moh.eor("**⌔∮ هذا المستخدم مو مكتوم في هذه الدردشة أصلا**", time=3)
     unmute(event.chat_id, userid)
-    await moh.eor("**⌔∮ تم بنجاح الغاء كتم المستخدم في الدردشة**", time=3)
+    await moh.eor("**⌔∮ تم بنجاح الغاء الكتم تقدر تتنفس**", time=3)
 
 
 def get_muted():
