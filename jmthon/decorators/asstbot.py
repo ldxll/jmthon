@@ -20,9 +20,9 @@ OWNER = jmubot.full_name
 CWD = Path.cwd()
 
 MSG = f"""
-**⌔∮ بوت سورس جمثون @Jmthon**
+**⌔∮ بوت سورس ايسكو @i_i24**
 ❃ **المالك**: [{OWNER}](tg://user?id={jmubot.uid})
-❃ **الـدَعمُ**: @Jmthon_support
+❃ **الـدَعمُ**: @i_i24
 """
 
 
@@ -57,9 +57,9 @@ def callback(data=None, from_users=[], admins=False, owner=False, **kwargs):
             if admins and not await admin_check(event):
                 return
             if from_users and event.sender_id not in from_users:
-                return await event.answer("هذه ليست لك نصب جمثون بنفسك من @jmthon", alert=True)
+                return await event.answer("هذه ليست لك نصب ايسكو بنفسك ", alert=True)
             if owner and event.sender_id not in owner_and_sudos():
-                return await event.answer(f"هذا هو بوت جمثون الخاص بـ {OWNER} تابعنا @jmthon")
+                return await event.answer(f"هذا هو بوت ايسكو الخاص بـ {OWNER} تابعنا @i_i24")
             try:
                 await func(event)
             except Exception as er:
@@ -78,17 +78,17 @@ def in_pattern(pattern=None, owner=False, button=None, **kwargs):
                     [
                         Button.url(
                             "قناة السورس",
-                            url="https://t.me/Jmthon",
+                            url="https://t.me/i_i24",
                         ),
-                        Button.url("مجموعة جمثون", url="https://t.me/Jmthon_Support"),
+                        Button.url("مجموعة ايسكو", url="https://t.me/isco"),
                     ]
                 ]
 
                 res = [
                     await event.builder.article(
-                        title="سورس جمثون",
-                        url="https://t.me/Jmthon",
-                        description="(c) Jmthon",
+                        title="سورس ايسكو",
+                        url="https://t.me/isco",
+                        description="(c) isco",
                         text=MSG,
                         thumb=InputWebDocument(
                             "resources/Jmthon.jpg",
@@ -130,7 +130,7 @@ def in_pattern(pattern=None, owner=False, button=None, **kwargs):
                                 title="حدثت مشكلة غير متوقعة",
                                 text=graphLink,
                                 buttons=Button.url(
-                                    "بلغ عنها", "https://t.me/Jmthon_Support"
+                                    "بلغ عنها", "https://t.me/isco"
                                 ),
                             )
                         ]
