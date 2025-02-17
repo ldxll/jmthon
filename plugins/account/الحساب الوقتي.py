@@ -1,15 +1,15 @@
 """
 
-❃ `{i}اسم وقتي`
+❃ `{i}ساعة جنب الاسم`
    لـ بدأ وضع الساعة مع اسمك حسابك
 
-❃ `{i}انهاء اسم وقتي`
+❃ `{i}انهاء الساعة`
    لـ تعطيل ظهور الساعة مع الأسم الخاص بك
 
-❃ `{i}بايو وقتي`
+❃ `{i}الساعة بالبايو`
    لـ بدأ وضع الساعة مع النبذة/البايو الخاص بك
 
-❃ `{i}انهاء اسم وقتي`
+❃ `{i}انهاء ساعة البايو`
    لـ تعطيل ظهور الوقت مع النبذة الخاصة بك
 """
 
@@ -21,7 +21,7 @@ from telethon.tl.functions.account import UpdateProfileRequest
 
 from .. import JmdB, jmubot, jmthon_cmd
 
-USERBIO = JmdB.get_key("MYBIO") or "صلى الله على محمد و أهل بيته"
+USERBIO = JmdB.get_key("isco") or "إذا ما مشت قدماي فوق ترابهم ، ظنوهُ تاجًا فوقَ هامِ جبينِهِم"
 NAME = JmdB.get_key("NAME")
 
 
@@ -45,9 +45,9 @@ async def autobio(event):
     JmdB.set_key("AUTOBIO", "True")
     await event.eor("**⌔∮ تم بنجاح تشغيل البايو الوقتي**", time=6)
     BIOS = [
-        "الحمد لله رب العالمين",
-        "صلى الله على محمد و أهل بيته"
-        "أستغفر الله العلي العظيم "
+        "‏ويظنون أنَّك انتهِيتّ وأنت جمرٌ إذا اشتدت الرّيحُ أحرقت ظنَّهم",
+        "isco is here"
+        "محمد|isco "
     ]
     while JmdB.get_key("AUTOBIO"):
         BIOMSG = JmdB.get_key("MYBIO") or random.choice(BIOS)
@@ -66,19 +66,19 @@ async def autobio(event):
 async def _(event):
     input_str = event.pattern_match.group(1)
     if (
-        input_str == "اسم وقتي"
-        or input_str == "اسم الوقتي"
-        or input_str == "الاسم الوقتي"
-        or input_str == "الاسم وقتي"
+        input_str == "االوقت "
+        or input_str == "الغي الوقت"
+        or input_str == "الغي وقتي"
+        or input_str == "وقت "
     ):
         if JmdB.get_key("AUTONAME"):
             JmdB.del_key("AUTONAME")
             await event.client(UpdateProfileRequest(first_name=NAME))
-            return await event.eor("**- تم بنجاح ايقاف الاسم الوقتي**")
-        return await event.eor("**- الاسم الوقتي غير شغال اصلا**")
-    if input_str == "بايو وقتي" or input_str == "البايو الوقتي":
+            return await event.eor("**- تم بنجاح ايقاف الوقت**")
+        return await event.eor("**- الوقت مو شغال اصلا**")
+    if input_str == "بايو وقتي" or input_str == " وقت البايو ":
         if JmdB.get_key("AUTOBIO"):
             JmdB.del_key("AUTOBIO")
             await event.client(UpdateProfileRequest(about=USERBIO))
-            return await event.eor("**- تم بنجاح ايقاف البايو الوقتي**")
-        return await event.eor("**- البايو الوقتي غير شغال اصلا**")
+            return await event.eor("**- تم بنجاح ايقاف الوقت بالبايو **")
+        return await event.eor("**- الوقت بالبايو مو شغال اصلا**")
