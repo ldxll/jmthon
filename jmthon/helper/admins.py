@@ -16,7 +16,7 @@ async def admin_callback(event):
     id_ = str(uuid.uuid1()).split("-")[0]
     time.time()
     msg = await event.reply(
-        "**⌔∮ يرجى الضغط على الزر أدناه للتأكد من أنك مشرف**",
+        "**⌔∮ اضغط عشان اشوف انت مشرف؟**",
         buttons=Button.inline("🔒 اضغط هنا للتحقق", f"cc_{id_}"),
     )
     if not cache_mod.get("admin_callback"):
@@ -82,11 +82,11 @@ async def admin_check(event, require=None, silent: bool = False):
             return False
     if not perms.is_admin:
         if not silent:
-            await event.eor("**⌔∮ يجب أن تكون مشرف لأستخدام هذا الأمر**", time=8)
+            await event.eor("**⌔∮ لازم تكون مشرف لأستخدام هذا الأمر**", time=8)
         return
     if require and not getattr(perms, require, False):
         if not silent:
-            await event.eor(f"**⌔∮ أنت لا تمتلك الصلاحيات الكافية:** `{require}`", time=8)
+            await event.eor(f"**⌔∮ ههههههه انت م تملك الصلاحيات الكافية:** `{require}`", time=8)
         return False
     return True
 
@@ -115,7 +115,7 @@ def ban_time(time_str):
     unit = time_str[-1]
     time_int = time_str[:-1]
     if not time_int.isdigit():
-        raise Exception("حدث خطأ اثناء تحديد وحدة المدة الزمنية")
+        raise Exception("حدث خطأ اثناء تحديد المدة الزمنية")
     if unit == "s":
         return int(time.time() + int(time_int))
     elif unit == "m":
